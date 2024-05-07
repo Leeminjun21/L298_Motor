@@ -1,23 +1,20 @@
 # L298_Motor
 ```언어
-//C++ code
-//
 #define IN1 11 // 핀 번호는 자신의 환경에 맞도록 설정
 #define IN2 10
-// #define ENR 9 
-#define IN3 8
-#define IN4 9
-// #define ENL 10
+#define ENR 6
+#define IN3 9
+#define IN4 8
+#define ENL 7
 
 void setup()
 {
-    //pinMode (LED BUILTIN, OUTPUT);
     pinMode (IN1, OUTPUT);
     pinMode (IN2, OUTPUT);
     pinMode (IN3, OUTPUT);
     pinMode (IN4, OUTPUT);
-//  pinMode (ENL, OUTPUT);
-//  pinMode (ENR, OUTPUT);
+    pinMode (ENL, OUTPUT);
+    pinMode (ENR, OUTPUT);
 }
 
 void motor_l(int speed)
@@ -26,13 +23,13 @@ void motor_l(int speed)
   {
     digitalWrite(IN1, LOW);
     digitalWrite(IN2, HIGH);
-    //analogWrite (ENL, speed); // 0-255
+    analogWrite (ENL, speed); // 0-255
   }
   else
   {
     digitalWrite(IN1, HIGH);
     digitalWrite(IN2, LOW);
-    //analogWrite (ENL, -speed);
+    analogWrite (ENL, -speed);
   }
 }
 
@@ -42,19 +39,20 @@ void motor_r(int speed)
   {
     digitalWrite(IN3, LOW);
     digitalWrite(IN4, HIGH);
-   // analogWrite (ENR, speed); // 0-255
+    analogWrite (ENR, speed); // 0-255
   }
   else
   {
     digitalWrite(IN3, HIGH);
     digitalWrite(IN4, LOW);
-    //analogWrite (ENR, -speed);
+    analogWrite (ENR, -speed);
   }
 }
 
 void loop()
 {
-    motor_l(-30);
-    motor_r(40);
+    motor_l(-255);
+    motor_r(-255);
+    
 }
 ```
